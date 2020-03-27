@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/app_bar_fav"
+        android:icon="@drawable/india"
+        android:title="data"
+        app:showAsAction="always"/>
+
+    <item
+        android:id="@+id/app_bar_fav1"
+        android:icon="@drawable/news"
+        android:title="data"
+        app:showAsAction="always"/>
+
+    <item
+        android:id="@+id/app_bar_fav2"
+        android:icon="@drawable/prec"
+        android:title="data"
+        app:showAsAction="always"/>
+
+</menu>
