@@ -2,6 +2,7 @@ package com.example.covid19;
 
 import android.app.ActivityOptions;
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -12,6 +13,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
+import android.widget.ProgressBar;
 
 
 /**
@@ -30,7 +32,14 @@ public class WebFragment extends Fragment {
         // Inflate the layout for this fragment
         View v = inflater.inflate(R.layout.fragment_web, container, false);
         final WebView mywebview = v.findViewById(R.id.web);
-        mywebview.setWebViewClient(new WebViewClient());
+        final ProgressBar progressBar = v.findViewById(R.id.pbar);
+        mywebview.setWebViewClient(new WebViewClient(){
+            @Override
+            public void onPageStarted(WebView view, String url, Bitmap favicon) {
+                progressBar.setVisibility(View.INVISIBLE);
+                super.onPageStarted(view, url, favicon);
+            }
+        });
         mywebview.getSettings().setJavaScriptEnabled(true);
         mywebview.loadUrl("https://rzp.io/l/bxiRMlb");
         v.setOnKeyListener(new View.OnKeyListener() {
