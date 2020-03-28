@@ -66,22 +66,24 @@ public class NewsFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         v = inflater.inflate(R.layout.fragment_news, container, false);
-        listView = v.findViewById(R.id.list_item);
-        URL = "https://newsapi.org/v2/top-headlines?country=in&q=coronavirus&apiKey=4e7bc1a2ea6b402898153eb1d675db88" ;
-        AsyncTask<Void, Void, Void> execute = new Utlis().execute();
-
+        //TODO - Back not working
         v.setOnKeyListener(new View.OnKeyListener() {
             @Override
             public boolean onKey(View v, int keyCode, KeyEvent event) {
 
                 if (keyCode == KeyEvent.KEYCODE_BACK){
-                        startActivity(new Intent(getActivity() , HomeActivity.class),
-                                ActivityOptions.makeSceneTransitionAnimation(getActivity()).toBundle());
+                    startActivity(new Intent(getActivity() , HomeActivity.class),
+                            ActivityOptions.makeSceneTransitionAnimation(getActivity()).toBundle());
                     return true;
                 }
                 return false;
             }
         });
+
+        listView = v.findViewById(R.id.list_item);
+        URL = "https://newsapi.org/v2/top-headlines?country=in&q=coronavirus&apiKey=4e7bc1a2ea6b402898153eb1d675db88" ;
+        AsyncTask<Void, Void, Void> execute = new Utlis().execute();
+
 
 
         return v;
