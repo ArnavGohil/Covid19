@@ -26,7 +26,7 @@ public class HomeActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 if(savedInstanceState == null) {
-                    WebFragment webFragment = new WebFragment();
+                    NewsFragment webFragment = new NewsFragment();
                     FragmentManager fragmentManager = getSupportFragmentManager();
                     fragmentManager.beginTransaction()
                             .add(R.id.frame, webFragment)

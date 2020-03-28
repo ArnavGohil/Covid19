@@ -31,7 +31,7 @@ public class WebFragment extends Fragment {
         View v = inflater.inflate(R.layout.fragment_web, container, false);
         final WebView mywebview = v.findViewById(R.id.web);
         mywebview.setWebViewClient(new WebViewClient());
-        mywebview.loadUrl("http://www.google.com/");
+        mywebview.loadUrl("https://rzp.io/l/bxiRMlb");
         mywebview.setOnKeyListener(new View.OnKeyListener() {
             @Override
             public boolean onKey(View v, int keyCode, KeyEvent event) {
