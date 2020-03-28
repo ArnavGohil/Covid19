@@ -33,7 +33,7 @@ public class WebFragment extends Fragment {
         mywebview.setWebViewClient(new WebViewClient());
         mywebview.getSettings().setJavaScriptEnabled(true);
         mywebview.loadUrl("https://rzp.io/l/bxiRMlb");
-        mywebview.setOnKeyListener(new View.OnKeyListener() {
+        v.setOnKeyListener(new View.OnKeyListener() {
             @Override
             public boolean onKey(View v, int keyCode, KeyEvent event) {
 

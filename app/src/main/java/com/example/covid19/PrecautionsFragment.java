@@ -23,6 +23,9 @@ public class PrecautionsFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_precautions, container, false);
+        View v = inflater.inflate(R.layout.fragment_precautions, container, false);
+
+
+        return v ;
     }
 }
