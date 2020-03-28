@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "8510525418",
+    "firebase_url": "https://covid-total.firebaseio.com",
+    "project_id": "covid-total",
+    "storage_bucket": "covid-total.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:8510525418:android:cd32f40bbd41229f116c93",
+        "android_client_info": {
+          "package_name": "com.example.covid19"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "8510525418-et518h0l1ldd6h1j2c5fsloocv65cfcq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCLHoT5rt-FsKu7pwJ4G9y6eUMPVPYVOKI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "8510525418-et518h0l1ldd6h1j2c5fsloocv65cfcq.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
