@@ -50,6 +50,7 @@ public class CardAdapter extends ArrayAdapter<Card>
         Picasso.with(this.getContext())
                 .load(currentAndroidFlavor.getBmp())
                 .centerCrop()
+                .transform(new CircleTransform(40,0))
                 .fit()
                 .into(iconView);
 

@@ -1,5 +1,6 @@
 package com.example.covid19;
 
+import android.app.ActivityOptions;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -10,6 +11,7 @@ import android.os.Bundle;
 import androidx.fragment.app.Fragment;
 
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -67,6 +69,21 @@ public class NewsFragment extends Fragment {
         listView = v.findViewById(R.id.list_item);
         URL = "https://newsapi.org/v2/top-headlines?country=in&q=coronavirus&apiKey=4e7bc1a2ea6b402898153eb1d675db88" ;
         AsyncTask<Void, Void, Void> execute = new Utlis().execute();
+
+        v.setOnKeyListener(new View.OnKeyListener() {
+            @Override
+            public boolean onKey(View v, int keyCode, KeyEvent event) {
+
+                if (keyCode == KeyEvent.KEYCODE_BACK){
+                        startActivity(new Intent(getActivity() , HomeActivity.class),
+                                ActivityOptions.makeSceneTransitionAnimation(getActivity()).toBundle());
+                    return true;
+                }
+                return false;
+            }
+        });
+
+
         return v;
     }
 
