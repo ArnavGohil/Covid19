@@ -84,6 +84,27 @@ public class HomeActivity extends AppCompatActivity {
         fab = findViewById(R.id.fab);
         frameLayout = findViewById(R.id.frame) ;
 
+        //TODO Do code for table here. -- https://api.covid19india.org/data.json
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
         fab.setOnClickListener(new View.OnClickListener() {
             @Override

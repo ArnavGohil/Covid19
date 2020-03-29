@@ -60,7 +60,6 @@ public class PrecautionsFragment extends Fragment {
         imgArrayList.add(new Img(R.drawable.parent6, "https://www.who.int/docs/default-source/coronaviruse/healthy-parenting/english-tip-6-covid-19-parenting.pdf"));
         imgArrayList.add(new Img(R.drawable.questions, "https://api.whatsapp.com/send?phone=41794752209&text=hi&source=&data="));
 
-        //TODO CONVERT TO RECYCLER VIEW
         ListView view = v.findViewById(R.id.recycler);
         ImgAdapter adapter = new ImgAdapter(getActivity(), imgArrayList);
         view.setAdapter(adapter);
