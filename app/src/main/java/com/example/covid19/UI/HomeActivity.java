@@ -68,7 +68,7 @@ public class HomeActivity extends AppCompatActivity {
     protected void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
-        MobileAds.initialize(this, "ca-app-pub-9644485909591428~2743433168");
+        MobileAds.initialize(this, "ca-app-pub-1629522666877826~3226934303");
         MobileAds.initialize(this, new OnInitializationCompleteListener() {
             @Override
             public void onInitializationComplete(InitializationStatus initializationStatus) {
