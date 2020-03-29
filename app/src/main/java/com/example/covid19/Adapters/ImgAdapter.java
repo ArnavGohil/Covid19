@@ -5,12 +5,16 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.net.Uri;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.webkit.WebView;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
+
+import androidx.core.content.ContextCompat;
+
 import com.example.covid19.Models.Img;
 import com.example.covid19.R;
 import com.google.android.material.button.MaterialButton;
@@ -18,6 +22,8 @@ import com.google.android.material.snackbar.Snackbar;
 
 
 import java.util.ArrayList;
+
+import static androidx.core.content.ContextCompat.startActivity;
 
 public class ImgAdapter extends ArrayAdapter<Img>
 {
@@ -41,7 +47,8 @@ public class ImgAdapter extends ArrayAdapter<Img>
             public void onClick(View view) {
                 if(currentAndroidFlavor.getID() == R.drawable.questions)
                 {
-                    //TODO Open WhatsApp link here ;
+                    Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(currentAndroidFlavor.getURL()));
+                    startActivity(getContext() , browserIntent , new Bundle());
                     return;
                 }
                 android.content.ClipboardManager clipboard = (android.content.ClipboardManager) getContext().getSystemService(Context.CLIPBOARD_SERVICE);
