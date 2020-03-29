@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_margin="16dp"
     android:layout_height="140dp"
-    android:background="@layout/rounded_border_edittext"
+    android:background="@layout/shape_rounded"
     android:gravity="center_horizontal"
     android:minHeight="?android:attr/listPreferredItemHeight"
     android:elevation="8dp"

@@ -1,4 +1,4 @@
-package com.example.covid19;
+package com.example.covid19.UI;
 
 import android.app.ActivityOptions;
 import android.content.Intent;
@@ -14,6 +14,8 @@ import android.view.ViewGroup;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.ProgressBar;
+
+import com.example.covid19.R;
 
 
 /**

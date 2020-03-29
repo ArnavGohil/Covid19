@@ -1,28 +1,25 @@
-package com.example.covid19;
+package com.example.covid19.UI;
 
-import android.app.ActivityOptions;
 import android.content.Intent;
 import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
 
 import android.util.Log;
-import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
-import android.webkit.WebView;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
-import com.squareup.picasso.Picasso;
+import com.example.covid19.Models.Card;
+import com.example.covid19.Adapters.CardAdapter;
+import com.example.covid19.R;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -36,9 +33,7 @@ import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.nio.charset.Charset;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
 
 import javax.net.ssl.HttpsURLConnection;
 
@@ -160,6 +155,8 @@ public class NewsFragment extends Fragment {
 
                 }
 
+                if(getActivity() == null)
+                    return;
                 CardAdapter flavorAdapter = new CardAdapter( getActivity() , cards);
 
                 listView.setAdapter(flavorAdapter);

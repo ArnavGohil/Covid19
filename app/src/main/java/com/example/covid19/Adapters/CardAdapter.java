@@ -1,8 +1,6 @@
-package com.example.covid19;
+package com.example.covid19.Adapters;
 
 import android.app.Activity;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,17 +8,17 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.covid19.CircleTransform;
+import com.example.covid19.Models.Card;
+import com.example.covid19.R;
 import com.squareup.picasso.Picasso;
 
-import java.io.IOException;
-import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
 
 public class CardAdapter extends ArrayAdapter<Card>
 {
     public CardAdapter(Activity context, ArrayList<Card> cards) {
-
         super(context, 0, cards);
     }
 
@@ -32,7 +30,7 @@ public class CardAdapter extends ArrayAdapter<Card>
         View listItemView = convertView;
         if(listItemView == null) {
             listItemView = LayoutInflater.from(getContext()).inflate(
-                   R.layout.news_item, parent, false);
+                   R.layout.item_news, parent, false);
         }
 
 
