@@ -3,23 +3,17 @@ package com.example.covid19.UI;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentManager;
 
-import android.content.Intent;
-import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
-import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import com.example.covid19.Adapters.CardAdapter;
 import com.example.covid19.Adapters.StateAdapter;
-import com.example.covid19.Models.Card;
 import com.example.covid19.Models.State;
 import com.example.covid19.R;
 import com.google.android.gms.ads.AdRequest;
@@ -28,6 +22,7 @@ import com.google.android.gms.ads.MobileAds;
 import com.google.android.gms.ads.initialization.InitializationStatus;
 import com.google.android.gms.ads.initialization.OnInitializationCompleteListener;
 import com.google.android.material.bottomappbar.BottomAppBar;
+import com.google.android.material.button.MaterialButtonToggleGroup;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import org.json.JSONArray;
@@ -48,7 +43,7 @@ import javax.net.ssl.HttpsURLConnection;
 
 public class HomeActivity extends AppCompatActivity {
 
-    int flag = 0 ;
+    int flag = 0 , check = 0 ; ;
     FragmentManager fragmentManager = getSupportFragmentManager();
     NewsFragment newsFragment = new NewsFragment();
     PrecautionsFragment precautionsFragment = new PrecautionsFragment();
@@ -60,6 +55,8 @@ public class HomeActivity extends AppCompatActivity {
     public static String jsonResponse = null;
     public static ArrayList<State> states = new ArrayList<>() ;
     TextView tot , rec,act,dea ;
+    Button t1 , t2 ;
+    MaterialButtonToggleGroup bg ;
 
     BottomAppBar.OnMenuItemClickListener itemClickListner
             = new  BottomAppBar.OnMenuItemClickListener()
@@ -97,6 +94,15 @@ public class HomeActivity extends AppCompatActivity {
         }
     };
 
+    Button.OnClickListener onClickListener
+            = new Button.OnClickListener()
+    {
+        @Override
+        public void onClick(View view) {
+           //TODO Button Toggling ;
+        }
+    };
+
     FloatingActionButton fab ;
     FrameLayout frameLayout ;
     AdView mAdView ;
@@ -119,13 +125,16 @@ public class HomeActivity extends AppCompatActivity {
 
         fab = findViewById(R.id.fab);
         frameLayout = findViewById(R.id.frame) ;
-
         tot = findViewById(R.id.textView);
         rec = findViewById(R.id.recTV);
         act = findViewById(R.id.actTV);
         dea = findViewById(R.id.deaTV);
-
+        t1 = findViewById(R.id.button1);
+        t2 = findViewById(R.id.button3);
+        bg = findViewById(R.id.toggleButton);
         lv = findViewById(R.id.lv);
+        t1.setOnClickListener(onClickListener);
+        t2.setOnClickListener(onClickListener);
         URL = "https://api.covid19india.org/data.json" ;
         AsyncTask<Void, Void, Void> execute = new Utlis().execute();
 
