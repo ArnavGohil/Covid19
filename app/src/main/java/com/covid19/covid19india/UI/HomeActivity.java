@@ -32,6 +32,9 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
+import org.jsoup.select.Elements;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -169,16 +172,16 @@ public class HomeActivity extends AppCompatActivity {
         t2.setOnClickListener(onClickListener);
 
         mapView = findViewById(R.id.mapView);
-        mapView.setWebViewClient(new WebViewClient());
-//        {
-//            @Override
-//            public void onPageFinished(WebView view, String url) {
-//
-//                mapView.loadUrl("javascript:(function() { " +
-//                        "document.getElementsByTagName('header')[0].style.display='none'; " +
-//                        "})()");
-//            }
-//        });
+        mapView.setWebViewClient(new WebViewClient()
+        {
+            @Override
+            public void onPageFinished(WebView view, String url) {
+
+                mapView.loadUrl("javascript:(function() { " +
+                        "document.getElementsByTagName(\"body\")[0].getElementsByClassName(\"MapExplorer fadeInUp\")[0].style.display='none'; " +
+                        "})()");
+            }
+        });
         mapView.getSettings().setJavaScriptEnabled(true);
         mapView.getSettings().setDomStorageEnabled(true);
         mapView.loadUrl("https://www.covid19india.org");
