@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Covid19India</string>
+    <string name="mapbox_access_token">TOKEN GOES HERE :D </string>
 </resources>

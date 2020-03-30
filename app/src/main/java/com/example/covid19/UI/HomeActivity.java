@@ -1,5 +1,6 @@
 package com.example.covid19.UI;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentManager;
 
@@ -25,6 +26,11 @@ import com.google.android.gms.ads.initialization.OnInitializationCompleteListene
 import com.google.android.material.bottomappbar.BottomAppBar;
 import com.google.android.material.button.MaterialButtonToggleGroup;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.mapbox.mapboxsdk.Mapbox;
+import com.mapbox.mapboxsdk.maps.MapView;
+import com.mapbox.mapboxsdk.maps.MapboxMap;
+import com.mapbox.mapboxsdk.maps.OnMapReadyCallback;
+import com.mapbox.mapboxsdk.maps.Style;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -59,6 +65,7 @@ public class HomeActivity extends AppCompatActivity {
     Button t1 , t2 ;
     MaterialButtonToggleGroup bg ;
     private InterstitialAd mInterstitialAd;
+    MapView mapView ;
 
     BottomAppBar.OnMenuItemClickListener itemClickListner
             = new  BottomAppBar.OnMenuItemClickListener()
@@ -69,6 +76,7 @@ public class HomeActivity extends AppCompatActivity {
             check++;
             if(id == R.id.ind  && flag != 0)
             {
+                mapView.onResume();
                 if(check >= 5)
                 {
                     if (mInterstitialAd.isLoaded())
@@ -85,6 +93,7 @@ public class HomeActivity extends AppCompatActivity {
             }
             else if(id == R.id.news  && flag != 1)
             {
+                mapView.onPause();
                 fragmentManager.beginTransaction()
                         .remove(precautionsFragment).remove(webFragment)
                         .add(R.id.frame, newsFragment)
@@ -94,7 +103,7 @@ public class HomeActivity extends AppCompatActivity {
             }
             else if(id == R.id.prec  && flag != 2)
             {
-
+                mapView.onPause();
                 fragmentManager.beginTransaction()
                         .remove(newsFragment).remove(webFragment)
                         .add(R.id.frame, precautionsFragment)
@@ -114,9 +123,11 @@ public class HomeActivity extends AppCompatActivity {
             if(view == t1)
             {
                 lv.setVisibility(View.INVISIBLE);
+                mapView.setVisibility(View.VISIBLE);
             }
             else
             {
+                mapView.setVisibility(View.INVISIBLE);
                 lv.setVisibility(View.VISIBLE);
             }
         }
@@ -128,7 +139,9 @@ public class HomeActivity extends AppCompatActivity {
     @Override
     protected void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Mapbox.getInstance(getApplicationContext(), getString(R.string.mapbox_access_token));
         setContentView(R.layout.activity_home);
+
         MobileAds.initialize(this, "ca-app-pub-1629522666877826~3226934303");
         MobileAds.initialize(this, new OnInitializationCompleteListener() {
             @Override
@@ -141,6 +154,25 @@ public class HomeActivity extends AppCompatActivity {
         mInterstitialAd = new InterstitialAd(this);
         mInterstitialAd.setAdUnitId("ca-app-pub-1629522666877826/9975125732");
         mInterstitialAd.loadAd(new AdRequest.Builder().build());
+
+        mapView = (MapView) findViewById(R.id.mapView);
+        mapView.onCreate(savedInstanceState);
+        mapView.getMapAsync(new OnMapReadyCallback() {
+            @Override
+            public void onMapReady(@NonNull MapboxMap mapboxMap) {
+
+                mapboxMap.setStyle(Style.DARK, new Style.OnStyleLoaded() {
+                    @Override
+                    public void onStyleLoaded(@NonNull Style style) {
+
+                        // Map is set up and the style has loaded. Now you can add data or make other map adjustments
+
+
+                    }
+                });
+
+            }
+        });
 
         BottomAppBar bar = findViewById(R.id.bottomAppBar);
         bar.setOnMenuItemClickListener(itemClickListner);
@@ -155,7 +187,7 @@ public class HomeActivity extends AppCompatActivity {
         t2 = findViewById(R.id.button3);
         bg = findViewById(R.id.toggleButton);
         lv = findViewById(R.id.lv);
-
+        lv.setVisibility(View.INVISIBLE);
         t1.setOnClickListener(onClickListener);
         t2.setOnClickListener(onClickListener);
         URL = "https://api.covid19india.org/data.json" ;
@@ -167,6 +199,7 @@ public class HomeActivity extends AppCompatActivity {
                 if(savedInstanceState == null && flag != 3) {
                     flag = 3;
                     check++;
+                    mapView.onPause();
                     fragmentManager.beginTransaction()
                             .add(R.id.frame, webFragment)
                             .remove(precautionsFragment)
@@ -177,6 +210,49 @@ public class HomeActivity extends AppCompatActivity {
         });
 
     }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        mapView.onStart();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        mapView.onResume();
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        mapView.onPause();
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        mapView.onStop();
+    }
+
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        mapView.onSaveInstanceState(outState);
+    }
+
+    @Override
+    public void onLowMemory() {
+        super.onLowMemory();
+        mapView.onLowMemory();
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        mapView.onDestroy();
+    }
+
 
 
 
