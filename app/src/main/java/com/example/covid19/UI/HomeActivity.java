@@ -99,7 +99,14 @@ public class HomeActivity extends AppCompatActivity {
     {
         @Override
         public void onClick(View view) {
-           //TODO Button Toggling ;
+            if(view == t1)
+            {
+                lv.setVisibility(View.INVISIBLE);
+            }
+            else
+            {
+                lv.setVisibility(View.VISIBLE);
+            }
         }
     };
 
@@ -133,6 +140,7 @@ public class HomeActivity extends AppCompatActivity {
         t2 = findViewById(R.id.button3);
         bg = findViewById(R.id.toggleButton);
         lv = findViewById(R.id.lv);
+
         t1.setOnClickListener(onClickListener);
         t2.setOnClickListener(onClickListener);
         URL = "https://api.covid19india.org/data.json" ;
