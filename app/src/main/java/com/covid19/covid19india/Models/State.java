@@ -1,17 +1,15 @@
 package com.covid19.covid19india.Models;
 
-public class State
-{
-    private String nam ;
-    private int tot , act , rec , dea ;
+public class State {
+    private String nam;
+    private int tot, act, rec, dea;
 
-    public State(String name , int total , int active , int recoverd , int death)
-    {
-        nam = name ;
-        tot = total ;
-        act = active ;
-        rec = recoverd ;
-        dea = death ;
+    public State(String name, int total, int active, int recoverd, int death) {
+        nam = name;
+        tot = total;
+        act = active;
+        rec = recoverd;
+        dea = death;
     }
 
     public String getNam() {

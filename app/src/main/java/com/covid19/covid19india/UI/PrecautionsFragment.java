@@ -1,25 +1,18 @@
 package com.covid19.covid19india.UI;
 
-import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
 import android.widget.ListView;
-import android.widget.Toast;
 
 import com.covid19.covid19india.Adapters.ImgAdapter;
-import com.covid19.covid19india.Models.Card;
 import com.covid19.covid19india.Models.Img;
 import com.covid19.covid19india.R;
-import com.google.android.material.button.MaterialButton;
 
 import java.util.ArrayList;
 
@@ -43,7 +36,7 @@ public class PrecautionsFragment extends Fragment {
             @Override
             public boolean onKey(View v, int keyCode, KeyEvent event) {
 
-                if (keyCode == KeyEvent.KEYCODE_BACK){
+                if (keyCode == KeyEvent.KEYCODE_BACK) {
 
                     return true;
                 }

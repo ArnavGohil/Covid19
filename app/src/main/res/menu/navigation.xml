@@ -6,18 +6,18 @@
         android:id="@+id/ind"
         android:icon="@drawable/india"
         android:title="Data"
-        app:showAsAction="always"/>
+        app:showAsAction="always" />
 
     <item
         android:id="@+id/news"
         android:icon="@drawable/news"
         android:title="News"
-        app:showAsAction="always"/>
+        app:showAsAction="always" />
 
     <item
         android:id="@+id/prec"
         android:icon="@drawable/prec"
         android:title="Precautions"
-        app:showAsAction="always"/>
+        app:showAsAction="always" />
 
 </menu>
