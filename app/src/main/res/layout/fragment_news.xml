@@ -17,6 +17,14 @@
         android:textSize="48sp"
         />
 
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:text="on Coronavirus"
+        android:textAlignment="center" />
+
     <ListView
         android:layout_gravity="center"
         android:divider="@android:color/transparent"
