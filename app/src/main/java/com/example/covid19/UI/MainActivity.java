@@ -26,6 +26,6 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(new Intent(MainActivity.this , HomeActivity.class),
                         ActivityOptions.makeSceneTransitionAnimation(MainActivity.this).toBundle());
             }
-        }, 4700 );
+        }, 4330 );
     }
 }
