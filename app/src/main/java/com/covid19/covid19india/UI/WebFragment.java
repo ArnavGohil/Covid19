@@ -1,4 +1,4 @@
-package com.example.covid19.UI;
+package com.covid19.covid19india.UI;
 
 import android.app.ActivityOptions;
 import android.content.Intent;

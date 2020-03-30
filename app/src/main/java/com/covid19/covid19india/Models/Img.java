@@ -1,4 +1,4 @@
-package com.example.covid19.Models;
+package com.covid19.covid19india.Models;
 
 import android.graphics.Bitmap;
 

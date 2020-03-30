@@ -1,4 +1,4 @@
-package com.example.covid19.UI;
+package com.covid19.covid19india.UI;
 
 import androidx.appcompat.app.AppCompatActivity;
 

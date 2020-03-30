@@ -1,4 +1,4 @@
-package com.example.covid19.Adapters;
+package com.covid19.covid19india.Adapters;
 
 import android.app.Activity;
 import android.view.LayoutInflater;
