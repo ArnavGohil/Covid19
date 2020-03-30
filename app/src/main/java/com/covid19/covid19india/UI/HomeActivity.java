@@ -180,6 +180,7 @@ public class HomeActivity extends AppCompatActivity {
                         "var head = document.getElementsByTagName(\"body\")[0].getElementsByClassName(\"home-left\")[0].style.display='none'; " +
                         "var head = document.getElementsByTagName(\"body\")[0].getElementsByClassName(\"timeseries-header fadeInUp\")[0].style.display='none'; " +
                         "var head = document.getElementsByTagName(\"body\")[0].getElementsByClassName(\"TimeSeries-Parent fadeInUp\")[0].style.display='none'; " +
+                        "var head = document.getElementsByTagName(\"body\")[0].getElementsByClassName(\"MapExplorer fadeInUp\")[0].getElementsByClassName(\"header\")[0].style.display='none'; " +
                         "var head = document.getElementsByTagName(\"footer\")[0].style.display='none'; " +
                         "})()");
             }
