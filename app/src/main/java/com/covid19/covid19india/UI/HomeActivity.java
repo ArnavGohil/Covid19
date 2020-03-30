@@ -9,6 +9,8 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
+import android.webkit.WebView;
+import android.webkit.WebViewClient;
 import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.ListView;
@@ -26,11 +28,6 @@ import com.google.android.gms.ads.initialization.OnInitializationCompleteListene
 import com.google.android.material.bottomappbar.BottomAppBar;
 import com.google.android.material.button.MaterialButtonToggleGroup;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.mapbox.mapboxsdk.Mapbox;
-import com.mapbox.mapboxsdk.maps.MapView;
-import com.mapbox.mapboxsdk.maps.MapboxMap;
-import com.mapbox.mapboxsdk.maps.OnMapReadyCallback;
-import com.mapbox.mapboxsdk.maps.Style;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -65,7 +62,7 @@ public class HomeActivity extends AppCompatActivity {
     Button t1 , t2 ;
     MaterialButtonToggleGroup bg ;
     private InterstitialAd mInterstitialAd;
-    MapView mapView ;
+    WebView mapView ;
 
     BottomAppBar.OnMenuItemClickListener itemClickListner
             = new  BottomAppBar.OnMenuItemClickListener()
@@ -139,7 +136,6 @@ public class HomeActivity extends AppCompatActivity {
     @Override
     protected void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Mapbox.getInstance(getApplicationContext(), getString(R.string.mapbox_access_token));
         setContentView(R.layout.activity_home);
 
         MobileAds.initialize(this, "ca-app-pub-1629522666877826~3226934303");
@@ -155,30 +151,23 @@ public class HomeActivity extends AppCompatActivity {
         mInterstitialAd.setAdUnitId("ca-app-pub-1629522666877826/9975125732");
         mInterstitialAd.loadAd(new AdRequest.Builder().build());
 
-        mapView = (MapView) findViewById(R.id.mapView);
-        mapView.onCreate(savedInstanceState);
-        mapView.getMapAsync(new OnMapReadyCallback() {
+        mapView = findViewById(R.id.mapView);
+        mapView.getSettings().setJavaScriptEnabled(true);
+        mapView.setWebViewClient(new WebViewClient() {
             @Override
-            public void onMapReady(@NonNull MapboxMap mapboxMap) {
+            public void onPageFinished(WebView view, String url) {
 
-                mapboxMap.setStyle(Style.DARK, new Style.OnStyleLoaded() {
-                    @Override
-                    public void onStyleLoaded(@NonNull Style style) {
-
-                        // Map is set up and the style has loaded. Now you can add data or make other map adjustments
-
-
-                    }
-                });
-
+                mapView.loadUrl("javascript:(function() { " +
+                        "document.getElementsByTagName('header')[0].style.display='none'; " +
+                        "})()");
             }
         });
-
+        mapView.loadUrl("https://www.covid19india.org/");
         BottomAppBar bar = findViewById(R.id.bottomAppBar);
         bar.setOnMenuItemClickListener(itemClickListner);
 
         fab = findViewById(R.id.fab);
-        frameLayout = findViewById(R.id.frame) ;
+        frameLayout = findViewById(R.id.frame);
         tot = findViewById(R.id.textView);
         rec = findViewById(R.id.recTV);
         act = findViewById(R.id.actTV);
@@ -190,13 +179,13 @@ public class HomeActivity extends AppCompatActivity {
         lv.setVisibility(View.INVISIBLE);
         t1.setOnClickListener(onClickListener);
         t2.setOnClickListener(onClickListener);
-        URL = "https://api.covid19india.org/data.json" ;
+        URL = "https://api.covid19india.org/data.json";
         AsyncTask<Void, Void, Void> execute = new Utlis().execute();
 
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(savedInstanceState == null && flag != 3) {
+                if (savedInstanceState == null && flag != 3) {
                     flag = 3;
                     check++;
                     mapView.onPause();
@@ -208,51 +197,7 @@ public class HomeActivity extends AppCompatActivity {
                 }
             }
         });
-
     }
-
-    @Override
-    protected void onStart() {
-        super.onStart();
-        mapView.onStart();
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-        mapView.onResume();
-    }
-
-    @Override
-    protected void onPause() {
-        super.onPause();
-        mapView.onPause();
-    }
-
-    @Override
-    protected void onStop() {
-        super.onStop();
-        mapView.onStop();
-    }
-
-    @Override
-    protected void onSaveInstanceState(Bundle outState) {
-        super.onSaveInstanceState(outState);
-        mapView.onSaveInstanceState(outState);
-    }
-
-    @Override
-    public void onLowMemory() {
-        super.onLowMemory();
-        mapView.onLowMemory();
-    }
-
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        mapView.onDestroy();
-    }
-
 
 
 
