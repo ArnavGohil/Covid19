@@ -13,24 +13,20 @@ import com.covid19.covid19india.Models.Card;
 import com.covid19.covid19india.R;
 import com.squareup.picasso.Picasso;
 
-import java.net.URL;
 import java.util.ArrayList;
 
-public class CardAdapter extends ArrayAdapter<Card>
-{
+public class CardAdapter extends ArrayAdapter<Card> {
     public CardAdapter(Activity context, ArrayList<Card> cards) {
         super(context, 0, cards);
     }
-
-    URL url;
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         // Check if the existing view is being reused, otherwise inflate the view
         View listItemView = convertView;
-        if(listItemView == null) {
+        if (listItemView == null) {
             listItemView = LayoutInflater.from(getContext()).inflate(
-                   R.layout.item_news, parent, false);
+                    R.layout.item_news, parent, false);
         }
 
 
@@ -48,10 +44,9 @@ public class CardAdapter extends ArrayAdapter<Card>
         Picasso.with(this.getContext())
                 .load(currentAndroidFlavor.getBmp())
                 .centerCrop()
-                .transform(new CircleTransform(40,0))
+                .transform(new CircleTransform(40, 0))
                 .fit()
                 .into(iconView);
-
 
 
         return listItemView;

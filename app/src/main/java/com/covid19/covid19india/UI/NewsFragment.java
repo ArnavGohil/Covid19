@@ -44,14 +44,14 @@ import javax.net.ssl.HttpsURLConnection;
  */
 public class NewsFragment extends Fragment {
 
-    static String URL ;
+    static String URL;
     public static HttpURLConnection urlConnection = null;
     public static InputStream inputStream = null;
     public static String jsonResponse = null;
-    public static ArrayList<Card> cards = new ArrayList<>() ;
-    View v ;
-    ListView listView ;
-    Bitmap bmp ;
+    public static ArrayList<Card> cards = new ArrayList<>();
+    View v;
+    ListView listView;
+    Bitmap bmp;
 
     public NewsFragment() {
         // Required empty public constructor
@@ -69,54 +69,47 @@ public class NewsFragment extends Fragment {
             @Override
             public boolean onKey(View v, int keyCode, KeyEvent event) {
 
-                if (keyCode == KeyEvent.KEYCODE_BACK){
+                if (keyCode == KeyEvent.KEYCODE_BACK) {
 
                     return true;
                 }
                 return false;
             }
         });
-        URL = "https://newsapi.org/v2/top-headlines?country=in&q=coronavirus&apiKey=4e7bc1a2ea6b402898153eb1d675db88" ;
+        URL = "https://newsapi.org/v2/top-headlines?country=in&q=coronavirus&apiKey=4e7bc1a2ea6b402898153eb1d675db88";
         AsyncTask<Void, Void, Void> execute = new Utlis().execute();
-
 
 
         return v;
     }
 
-    class Utlis extends AsyncTask<Void,Void,Void> {
+    class Utlis extends AsyncTask<Void, Void, Void> {
         @Override
         protected Void doInBackground(Void... voids) {
             java.net.URL url = null;
-            try
-            {
+            try {
                 url = new URL(URL);
                 Log.e("JSON", "URL WALA" + url);
+            } catch (MalformedURLException e) {
             }
-            catch (MalformedURLException e) { }
 
-            try
-            {
+            try {
 
-                try
-                {
+                try {
 
                     urlConnection = (HttpsURLConnection) url.openConnection();
 
 
                     // If the request was successful (response code 200),
                     // then read the input stream and parse the response.
-                    if (urlConnection.getResponseCode() == 200)
-                    {
+                    if (urlConnection.getResponseCode() == 200) {
                         inputStream = urlConnection.getInputStream();
                         StringBuilder output = new StringBuilder();
-                        if (inputStream != null)
-                        {
+                        if (inputStream != null) {
                             InputStreamReader inputStreamReader = new InputStreamReader(inputStream, Charset.forName("UTF-8"));
                             BufferedReader reader = new BufferedReader(inputStreamReader);
                             String line = reader.readLine();
-                            while (line != null)
-                            {
+                            while (line != null) {
                                 output.append(line);
                                 line = reader.readLine();
                             }
@@ -125,23 +118,16 @@ public class NewsFragment extends Fragment {
                         Log.e("JSON", "JSON WALA" + jsonResponse);
 
                     }
-                }
-                catch (IOException e) {
-                }
-                finally
-                {
-                    if (urlConnection != null)
-                    {
+                } catch (IOException e) {
+                } finally {
+                    if (urlConnection != null) {
                         urlConnection.disconnect();
                     }
-                    if (inputStream != null)
-                    {
+                    if (inputStream != null) {
                         inputStream.close();
                     }
                 }
-            }
-            catch (IOException e)
-            {
+            } catch (IOException e) {
             }
             return null;
         }
@@ -150,26 +136,25 @@ public class NewsFragment extends Fragment {
         protected void onPostExecute(Void aVoid) {
             super.onPostExecute(aVoid);
             cards.clear();
-            Log.e("Final", "onPostExecute: " + jsonResponse );
+            Log.e("Final", "onPostExecute: " + jsonResponse);
             try {
-                JSONObject jsonObject = new JSONObject(jsonResponse) ;
+                JSONObject jsonObject = new JSONObject(jsonResponse);
                 JSONArray ini = jsonObject.getJSONArray("articles");
-                for (int i = 0; i < ini.length() ; i++)
-                {
+                for (int i = 0; i < ini.length(); i++) {
                     JSONObject obj = ini.getJSONObject(i);
                     String tit = obj.getString("title");
                     String desc = obj.getString("url");
                     String url = obj.getString("urlToImage");
 
-                    Log.e("NEWS", "Title: " + tit );
+                    Log.e("NEWS", "Title: " + tit);
 
-                    cards.add(new Card(tit , desc , url));
+                    cards.add(new Card(tit, desc, url));
 
                 }
 
-                if(getActivity() == null)
+                if (getActivity() == null)
                     return;
-                CardAdapter flavorAdapter = new CardAdapter( getActivity() , cards);
+                CardAdapter flavorAdapter = new CardAdapter(getActivity(), cards);
 
                 listView.setAdapter(flavorAdapter);
 
@@ -179,7 +164,7 @@ public class NewsFragment extends Fragment {
                 listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                     @Override
                     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                        Card item =cards.get(position);
+                        Card item = cards.get(position);
                         Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(item.getDesc()));
                         startActivity(browserIntent);
                     }

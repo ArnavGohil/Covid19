@@ -12,8 +12,7 @@ import com.covid19.covid19india.R;
 
 import java.util.ArrayList;
 
-public class StateAdapter extends ArrayAdapter<State>
-{
+public class StateAdapter extends ArrayAdapter<State> {
     public StateAdapter(Activity context, ArrayList<State> cards) {
         super(context, 0, cards);
     }
@@ -22,9 +21,9 @@ public class StateAdapter extends ArrayAdapter<State>
     public View getView(int position, View convertView, ViewGroup parent) {
         // Check if the existing view is being reused, otherwise inflate the view
         View listItemView = convertView;
-        if(listItemView == null) {
+        if (listItemView == null) {
             listItemView = LayoutInflater.from(getContext()).inflate(
-                    R.layout.item_state , parent, false);
+                    R.layout.item_state, parent, false);
         }
 
         final State currentAndroidFlavor = getItem(position);

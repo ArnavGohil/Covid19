@@ -1,6 +1,5 @@
 package com.covid19.covid19india.UI;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentManager;
 
@@ -47,65 +46,57 @@ import javax.net.ssl.HttpsURLConnection;
 
 public class HomeActivity extends AppCompatActivity {
 
-    int flag = 0 , check = 0 ; ;
+    int flag = 0, check = 0;
+    ;
     FragmentManager fragmentManager = getSupportFragmentManager();
     NewsFragment newsFragment = new NewsFragment();
     PrecautionsFragment precautionsFragment = new PrecautionsFragment();
     WebFragment webFragment = new WebFragment();
-    ListView lv ;
-    static String URL ;
+    ListView lv;
+    static String URL;
     public static HttpURLConnection urlConnection = null;
     public static InputStream inputStream = null;
     public static String jsonResponse = null;
-    public static ArrayList<State> states = new ArrayList<>() ;
-    TextView tot , rec,act,dea ;
-    Button t1 , t2 ;
-    MaterialButtonToggleGroup bg ;
+    public static ArrayList<State> states = new ArrayList<>();
+    TextView tot, rec, act, dea;
+    Button t1, t2;
+    MaterialButtonToggleGroup bg;
     private InterstitialAd mInterstitialAd;
-    WebView mapView ;
+    WebView mapView;
 
     BottomAppBar.OnMenuItemClickListener itemClickListner
-            = new  BottomAppBar.OnMenuItemClickListener()
-    {
+            = new BottomAppBar.OnMenuItemClickListener() {
         @Override
         public boolean onMenuItemClick(MenuItem item) {
-            int id = item.getItemId() ;
+            int id = item.getItemId();
             check++;
-            if(id == R.id.ind  && flag != 0)
-            {
+            if (id == R.id.ind && flag != 0) {
                 mapView.onResume();
-                if(check >= 5)
-                {
-                    if (mInterstitialAd.isLoaded())
-                    {
+                if (check >= 5) {
+                    if (mInterstitialAd.isLoaded()) {
                         mInterstitialAd.show();
                         check = -1;
-                    }
-                    else
-                        check = 3 ;
+                    } else
+                        check = 3;
                 }
                 fragmentManager.beginTransaction().remove(precautionsFragment).remove(webFragment).remove(newsFragment).commit();
-                flag = 0 ;
+                flag = 0;
                 return false;
-            }
-            else if(id == R.id.news  && flag != 1)
-            {
+            } else if (id == R.id.news && flag != 1) {
                 mapView.onPause();
                 fragmentManager.beginTransaction()
                         .remove(precautionsFragment).remove(webFragment)
                         .add(R.id.frame, newsFragment)
                         .commit();
-                flag = 1 ;
+                flag = 1;
                 return false;
-            }
-            else if(id == R.id.prec  && flag != 2)
-            {
+            } else if (id == R.id.prec && flag != 2) {
                 mapView.onPause();
                 fragmentManager.beginTransaction()
                         .remove(newsFragment).remove(webFragment)
                         .add(R.id.frame, precautionsFragment)
                         .commit();
-                flag = 2 ;
+                flag = 2;
                 return false;
             }
             return false;
@@ -113,26 +104,23 @@ public class HomeActivity extends AppCompatActivity {
     };
 
     Button.OnClickListener onClickListener
-            = new Button.OnClickListener()
-    {
+            = new Button.OnClickListener() {
         @Override
         public void onClick(View view) {
-            if(view == t1)
-            {
+            if (view == t1) {
                 lv.setVisibility(View.INVISIBLE);
                 mapView.setVisibility(View.VISIBLE);
-            }
-            else
-            {
+            } else {
                 mapView.setVisibility(View.INVISIBLE);
                 lv.setVisibility(View.VISIBLE);
             }
         }
     };
 
-    FloatingActionButton fab ;
-    FrameLayout frameLayout ;
-    AdView mAdView ;
+    FloatingActionButton fab;
+    FrameLayout frameLayout;
+    AdView mAdView;
+
     @Override
     protected void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -169,8 +157,7 @@ public class HomeActivity extends AppCompatActivity {
 
         mapView = findViewById(R.id.mapView);
         mapView.setVisibility(View.INVISIBLE);
-        mapView.setWebViewClient(new WebViewClient()
-        {
+        mapView.setWebViewClient(new WebViewClient() {
             @Override
             public void onPageFinished(WebView view, String url) {
 
@@ -214,39 +201,33 @@ public class HomeActivity extends AppCompatActivity {
         return;
     }
 
-    class Utlis extends AsyncTask<Void,Void,Void> {
+    class Utlis extends AsyncTask<Void, Void, Void> {
         @Override
         protected Void doInBackground(Void... voids) {
             java.net.URL url = null;
-            try
-            {
+            try {
                 url = new URL(URL);
                 Log.e("JSON", "URL WALA" + url);
+            } catch (MalformedURLException e) {
             }
-            catch (MalformedURLException e) { }
 
-            try
-            {
+            try {
 
-                try
-                {
+                try {
 
                     urlConnection = (HttpsURLConnection) url.openConnection();
 
 
                     // If the request was successful (response code 200),
                     // then read the input stream and parse the response.
-                    if (urlConnection.getResponseCode() == 200)
-                    {
+                    if (urlConnection.getResponseCode() == 200) {
                         inputStream = urlConnection.getInputStream();
                         StringBuilder output = new StringBuilder();
-                        if (inputStream != null)
-                        {
+                        if (inputStream != null) {
                             InputStreamReader inputStreamReader = new InputStreamReader(inputStream, Charset.forName("UTF-8"));
                             BufferedReader reader = new BufferedReader(inputStreamReader);
                             String line = reader.readLine();
-                            while (line != null)
-                            {
+                            while (line != null) {
                                 output.append(line);
                                 line = reader.readLine();
                             }
@@ -255,23 +236,16 @@ public class HomeActivity extends AppCompatActivity {
                         Log.e("JSON", "JSON WALA" + jsonResponse);
 
                     }
-                }
-                catch (IOException e) {
-                }
-                finally
-                {
-                    if (urlConnection != null)
-                    {
+                } catch (IOException e) {
+                } finally {
+                    if (urlConnection != null) {
                         urlConnection.disconnect();
                     }
-                    if (inputStream != null)
-                    {
+                    if (inputStream != null) {
                         inputStream.close();
                     }
                 }
-            }
-            catch (IOException e)
-            {
+            } catch (IOException e) {
             }
             return null;
         }
@@ -280,17 +254,16 @@ public class HomeActivity extends AppCompatActivity {
         protected void onPostExecute(Void aVoid) {
             super.onPostExecute(aVoid);
             states.clear();
-            Log.e("Final", "onPostExecute: " + jsonResponse );
+            Log.e("Final", "onPostExecute: " + jsonResponse);
             try {
-                JSONObject jsonObject = new JSONObject(jsonResponse) ;
+                JSONObject jsonObject = new JSONObject(jsonResponse);
                 JSONArray ini = jsonObject.getJSONArray("statewise");
                 JSONObject o = ini.getJSONObject(0);
                 tot.setText("Total Cases - " + o.getString("confirmed"));
                 act.setText("Active Cases - " + o.getInt("active"));
                 rec.setText("Recovered - " + o.getInt("recovered"));
                 dea.setText("Deaths - " + o.getInt("deaths"));
-                for (int i = 1; i < ini.length() ; i++)
-                {
+                for (int i = 1; i < ini.length(); i++) {
                     JSONObject obj = ini.getJSONObject(i);
                     String st = obj.getString("state");
                     int to = obj.getInt("confirmed");
@@ -299,11 +272,11 @@ public class HomeActivity extends AppCompatActivity {
                     int de = obj.getInt("deaths");
 
 
-                    states.add(new State(st,to ,ac , re , de ));
+                    states.add(new State(st, to, ac, re, de));
 
                 }
 
-                StateAdapter flavorAdapter = new StateAdapter( HomeActivity.this , states);
+                StateAdapter flavorAdapter = new StateAdapter(HomeActivity.this, states);
                 lv.setAdapter(flavorAdapter);
 
             } catch (JSONException e) {

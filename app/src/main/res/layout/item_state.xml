@@ -26,9 +26,9 @@
             android:id="@+id/tTV"
             android:layout_width="15dp"
             android:layout_height="match_parent"
+            android:layout_margin="1dp"
             android:layout_weight="1"
             android:background="@layout/shape_square"
-            android:layout_margin="1dp"
             android:padding="8dp"
             android:text="Total"
             android:textAlignment="viewEnd"
@@ -39,40 +39,40 @@
             android:id="@+id/aTV"
             android:layout_width="15dp"
             android:layout_height="match_parent"
-            android:layout_weight="1"
             android:layout_margin="1dp"
+            android:layout_weight="1"
+            android:background="@layout/shape_square"
             android:padding="8dp"
             android:text="TOTAL"
             android:textAlignment="viewEnd"
             android:textColor="#0091EA"
-            android:textSize="16sp"
-            android:background="@layout/shape_square"/>
+            android:textSize="16sp" />
 
         <TextView
             android:id="@+id/rTV"
             android:layout_width="15dp"
             android:layout_height="match_parent"
-            android:layout_weight="1"
             android:layout_margin="1dp"
+            android:layout_weight="1"
+            android:background="@layout/shape_square"
             android:padding="8dp"
             android:text="TOTAL"
             android:textAlignment="viewEnd"
             android:textColor="#00C853"
-            android:textSize="16sp"
-            android:background="@layout/shape_square"/>
+            android:textSize="16sp" />
 
         <TextView
             android:id="@+id/dTV"
             android:layout_width="15dp"
             android:layout_height="match_parent"
-            android:layout_weight="1"
             android:layout_margin="1dp"
+            android:layout_weight="1"
+            android:background="@layout/shape_square"
             android:padding="8dp"
             android:text="TOTAL"
             android:textAlignment="viewEnd"
             android:textColor="#DD2C00"
-            android:textSize="16sp"
-            android:background="@layout/shape_square"/>
+            android:textSize="16sp" />
 
     </LinearLayout>
 

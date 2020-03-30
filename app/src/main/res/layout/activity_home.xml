@@ -11,11 +11,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="23dp"
+        app:checkedButton="@id/button3"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:selectionRequired="true"
-        app:checkedButton="@id/button3"
         app:singleSelection="true">
 
         <Button
@@ -34,7 +34,6 @@
     </com.google.android.material.button.MaterialButtonToggleGroup>
 
     <TextView
-        android:textStyle="bold"
         android:id="@+id/textView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -43,6 +42,7 @@
         android:textAlignment="center"
         android:textColor="#000000"
         android:textSize="24sp"
+        android:textStyle="bold"
         app:layout_constraintTop_toBottomOf="@+id/toggleButton" />
 
     <LinearLayout
@@ -53,19 +53,17 @@
         app:layout_constraintTop_toBottomOf="@+id/textView">
 
         <TextView
-            android:textStyle="bold"
-            android:textColor="#0091EA"
             android:id="@+id/actTV"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:padding="8dp"
             android:text="TOTAL"
-            android:textSize="16sp" />
+            android:textColor="#0091EA"
+            android:textSize="16sp"
+            android:textStyle="bold" />
 
         <TextView
-            android:textStyle="bold"
-            android:textColor="#00C853"
             android:id="@+id/recTV"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -73,11 +71,11 @@
             android:padding="8dp"
             android:text="TOTAL"
             android:textAlignment="center"
-            android:textSize="16sp" />
+            android:textColor="#00C853"
+            android:textSize="16sp"
+            android:textStyle="bold" />
 
         <TextView
-            android:textStyle="bold"
-            android:textColor="#DD2C00"
             android:id="@+id/deaTV"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -85,17 +83,19 @@
             android:padding="8dp"
             android:text="TOTAL"
             android:textAlignment="textEnd"
-            android:textSize="16sp" />
+            android:textColor="#DD2C00"
+            android:textSize="16sp"
+            android:textStyle="bold" />
 
     </LinearLayout>
 
     <ListView
         android:id="@+id/lv"
-        android:divider="@android:color/transparent"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_marginTop="20dp"
         android:layout_marginBottom="10dp"
+        android:divider="@android:color/transparent"
         app:layout_constraintBottom_toBottomOf="@+id/frame"
         app:layout_constraintTop_toBottomOf="@+id/ll" />
 
@@ -115,7 +115,7 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         app:adSize="SMART_BANNER"
-        app:adUnitId="ca-app-pub-1629522666877826/6420073852"
+        app:adUnitId="ca-app-pub-1629522666877826/1980552816"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
@@ -124,9 +124,9 @@
         android:id="@+id/frame"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_marginBottom="100dp"
         app:layout_constraintTop_toTopOf="parent"
-        tools:layout_editor_absoluteX="0dp"
-        android:layout_marginBottom="100dp">
+        tools:layout_editor_absoluteX="0dp">
 
     </FrameLayout>
 
@@ -142,9 +142,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom"
-            app:hideOnScroll="true"
             app:fabAlignmentMode="end"
             app:fabCradleVerticalOffset="@dimen/cardview_default_radius"
+            app:hideOnScroll="true"
             app:menu="@menu/navigation" />
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -153,12 +153,11 @@
             android:layout_height="wrap_content"
             android:src="@drawable/rupee"
             app:hideOnScroll="true"
-            app:layout_scrollFlags="scroll|enterAlwaysCollapsed"
             app:layout_anchor="@id/bottomAppBar"
+            app:layout_scrollFlags="scroll|enterAlwaysCollapsed"
             app:maxImageSize="50dp" />
 
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
-
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

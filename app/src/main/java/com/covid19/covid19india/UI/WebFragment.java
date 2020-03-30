@@ -1,7 +1,5 @@
 package com.covid19.covid19india.UI;
 
-import android.app.ActivityOptions;
-import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.Bundle;
 
@@ -35,7 +33,7 @@ public class WebFragment extends Fragment {
         View v = inflater.inflate(R.layout.fragment_web, container, false);
         final WebView mywebview = v.findViewById(R.id.web);
         final ProgressBar progressBar = v.findViewById(R.id.pbar);
-        mywebview.setWebViewClient(new WebViewClient(){
+        mywebview.setWebViewClient(new WebViewClient() {
             @Override
             public void onPageStarted(WebView view, String url, Bitmap favicon) {
                 progressBar.setVisibility(View.INVISIBLE);
@@ -48,14 +46,16 @@ public class WebFragment extends Fragment {
             @Override
             public boolean onKey(View v, int keyCode, KeyEvent event) {
 
-                if (keyCode == KeyEvent.KEYCODE_BACK){
-                    
-                    return true;
+                if (keyCode == KeyEvent.KEYCODE_BACK) {
+                    if (mywebview.canGoBack())
+                        mywebview.goBack();
+                    else
+                        return true;
                 }
                 return false;
             }
         });
 
-        return v ;
+        return v;
     }
 }

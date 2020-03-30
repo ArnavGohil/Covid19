@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_margin="16dp"
     android:layout_height="140dp"
+    android:layout_margin="16dp"
     android:background="@layout/shape_rounded"
+    android:elevation="8dp"
     android:gravity="center_horizontal"
     android:minHeight="?android:attr/listPreferredItemHeight"
-    android:elevation="8dp"
     android:orientation="horizontal">
 
     <ImageView
@@ -17,11 +17,11 @@
         android:padding="16dp" />
 
     <TextView
-        android:padding="12dp"
         android:id="@+id/head"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:gravity="center"
+        android:padding="12dp"
         android:textAlignment="center"
         android:textColor="#000000"
         android:textSize="18sp" />

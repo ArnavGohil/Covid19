@@ -1,16 +1,12 @@
 package com.covid19.covid19india.Models;
 
-import android.graphics.Bitmap;
+public class Img {
+    private int ID;
+    private String URL;
 
-public class Img
-{
-    private int ID ;
-    private String URL ;
-
-    public Img(int b , String u)
-    {
-        ID = b ;
-        URL = u ;
+    public Img(int b, String u) {
+        ID = b;
+        URL = u;
     }
 
     public int getID() {
