@@ -151,18 +151,6 @@ public class HomeActivity extends AppCompatActivity {
         mInterstitialAd.setAdUnitId("ca-app-pub-1629522666877826/9975125732");
         mInterstitialAd.loadAd(new AdRequest.Builder().build());
 
-        mapView = findViewById(R.id.mapView);
-        mapView.getSettings().setJavaScriptEnabled(true);
-        mapView.setWebViewClient(new WebViewClient() {
-            @Override
-            public void onPageFinished(WebView view, String url) {
-
-                mapView.loadUrl("javascript:(function() { " +
-                        "document.getElementsByTagName('header')[0].style.display='none'; " +
-                        "})()");
-            }
-        });
-        mapView.loadUrl("https://www.covid19india.org/");
         BottomAppBar bar = findViewById(R.id.bottomAppBar);
         bar.setOnMenuItemClickListener(itemClickListner);
 
@@ -179,6 +167,22 @@ public class HomeActivity extends AppCompatActivity {
         lv.setVisibility(View.INVISIBLE);
         t1.setOnClickListener(onClickListener);
         t2.setOnClickListener(onClickListener);
+
+        mapView = findViewById(R.id.mapView);
+        mapView.setWebViewClient(new WebViewClient());
+//        {
+//            @Override
+//            public void onPageFinished(WebView view, String url) {
+//
+//                mapView.loadUrl("javascript:(function() { " +
+//                        "document.getElementsByTagName('header')[0].style.display='none'; " +
+//                        "})()");
+//            }
+//        });
+        mapView.getSettings().setJavaScriptEnabled(true);
+        mapView.getSettings().setDomStorageEnabled(true);
+        mapView.loadUrl("https://www.covid19india.org");
+
         URL = "https://api.covid19india.org/data.json";
         AsyncTask<Void, Void, Void> execute = new Utlis().execute();
 
