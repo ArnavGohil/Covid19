@@ -15,7 +15,7 @@ import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.ProgressBar;
 
-import com.example.covid19.R;
+import com.covid19.covid19india.R;
 
 
 /**

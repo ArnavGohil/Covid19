@@ -14,10 +14,10 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.Toast;
 
-import com.example.covid19.Adapters.ImgAdapter;
-import com.example.covid19.Models.Card;
-import com.example.covid19.Models.Img;
-import com.example.covid19.R;
+import com.covid19.covid19india.Adapters.ImgAdapter;
+import com.covid19.covid19india.Models.Card;
+import com.covid19.covid19india.Models.Img;
+import com.covid19.covid19india.R;
 import com.google.android.material.button.MaterialButton;
 
 import java.util.ArrayList;

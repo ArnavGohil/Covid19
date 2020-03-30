@@ -15,8 +15,8 @@ import android.widget.ImageView;
 
 import androidx.core.content.ContextCompat;
 
-import com.example.covid19.Models.Img;
-import com.example.covid19.R;
+import com.covid19.covid19india.Models.Img;
+import com.covid19.covid19india.R;
 import com.google.android.material.button.MaterialButton;
 import com.google.android.material.snackbar.Snackbar;
 

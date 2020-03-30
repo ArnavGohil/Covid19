@@ -8,9 +8,9 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.example.covid19.CircleTransform;
-import com.example.covid19.Models.Card;
-import com.example.covid19.R;
+import com.covid19.covid19india.CircleTransform;
+import com.covid19.covid19india.Models.Card;
+import com.covid19.covid19india.R;
 import com.squareup.picasso.Picasso;
 
 import java.net.URL;

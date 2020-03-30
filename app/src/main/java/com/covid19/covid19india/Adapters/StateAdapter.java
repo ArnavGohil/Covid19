@@ -7,8 +7,8 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
-import com.example.covid19.Models.State;
-import com.example.covid19.R;
+import com.covid19.covid19india.Models.State;
+import com.covid19.covid19india.R;
 
 import java.util.ArrayList;
 

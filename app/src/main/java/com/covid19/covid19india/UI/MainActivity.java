@@ -8,7 +8,7 @@ import android.os.Bundle;
 import android.os.Handler;
 
 import com.airbnb.lottie.LottieAnimationView;
-import com.example.covid19.R;
+import com.covid19.covid19india.R;
 
 public class MainActivity extends AppCompatActivity {
 

@@ -17,9 +17,9 @@ import android.view.animation.AnimationUtils;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
-import com.example.covid19.Models.Card;
-import com.example.covid19.Adapters.CardAdapter;
-import com.example.covid19.R;
+import com.covid19.covid19india.Models.Card;
+import com.covid19.covid19india.Adapters.CardAdapter;
+import com.covid19.covid19india.R;
 
 import org.json.JSONArray;
 import org.json.JSONException;

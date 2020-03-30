@@ -14,9 +14,9 @@ import android.widget.FrameLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import com.example.covid19.Adapters.StateAdapter;
-import com.example.covid19.Models.State;
-import com.example.covid19.R;
+import com.covid19.covid19india.Adapters.StateAdapter;
+import com.covid19.covid19india.Models.State;
+import com.covid19.covid19india.R;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.InterstitialAd;
