@@ -15,7 +15,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:selectionRequired="true"
-        app:checkedButton="@id/button1"
+        app:checkedButton="@id/button3"
         app:singleSelection="true">
 
         <Button
@@ -34,6 +34,7 @@
     </com.google.android.material.button.MaterialButtonToggleGroup>
 
     <TextView
+        android:textStyle="bold"
         android:id="@+id/textView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -52,6 +53,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView">
 
         <TextView
+            android:textStyle="bold"
             android:textColor="#0091EA"
             android:id="@+id/actTV"
             android:layout_width="match_parent"
@@ -62,6 +64,7 @@
             android:textSize="16sp" />
 
         <TextView
+            android:textStyle="bold"
             android:textColor="#00C853"
             android:id="@+id/recTV"
             android:layout_width="match_parent"
@@ -73,6 +76,7 @@
             android:textSize="16sp" />
 
         <TextView
+            android:textStyle="bold"
             android:textColor="#DD2C00"
             android:id="@+id/deaTV"
             android:layout_width="match_parent"

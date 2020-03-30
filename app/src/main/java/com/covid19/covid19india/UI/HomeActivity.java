@@ -164,11 +164,11 @@ public class HomeActivity extends AppCompatActivity {
         t2 = findViewById(R.id.button3);
         bg = findViewById(R.id.toggleButton);
         lv = findViewById(R.id.lv);
-        lv.setVisibility(View.INVISIBLE);
         t1.setOnClickListener(onClickListener);
         t2.setOnClickListener(onClickListener);
 
         mapView = findViewById(R.id.mapView);
+        mapView.setVisibility(View.INVISIBLE);
         mapView.setWebViewClient(new WebViewClient()
         {
             @Override
