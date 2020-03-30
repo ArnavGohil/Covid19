@@ -28,4 +28,9 @@ public class MainActivity extends AppCompatActivity {
             }
         }, 4330 );
     }
+
+    @Override
+    public void onBackPressed() {
+        return;
+    }
 }

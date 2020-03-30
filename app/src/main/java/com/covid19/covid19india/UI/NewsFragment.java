@@ -9,6 +9,7 @@ import android.os.Bundle;
 import androidx.fragment.app.Fragment;
 
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -64,6 +65,17 @@ public class NewsFragment extends Fragment {
         v = inflater.inflate(R.layout.fragment_news, container, false);
 
         listView = v.findViewById(R.id.list_item);
+        v.setOnKeyListener(new View.OnKeyListener() {
+            @Override
+            public boolean onKey(View v, int keyCode, KeyEvent event) {
+
+                if (keyCode == KeyEvent.KEYCODE_BACK){
+
+                    return true;
+                }
+                return false;
+            }
+        });
         URL = "https://newsapi.org/v2/top-headlines?country=in&q=coronavirus&apiKey=4e7bc1a2ea6b402898153eb1d675db88" ;
         AsyncTask<Void, Void, Void> execute = new Utlis().execute();
 

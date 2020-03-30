@@ -209,7 +209,10 @@ public class HomeActivity extends AppCompatActivity {
         });
     }
 
-
+    @Override
+    public void onBackPressed() {
+        return;
+    }
 
     class Utlis extends AsyncTask<Void,Void,Void> {
         @Override

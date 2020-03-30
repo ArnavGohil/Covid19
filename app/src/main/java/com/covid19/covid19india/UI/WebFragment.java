@@ -49,11 +49,7 @@ public class WebFragment extends Fragment {
             public boolean onKey(View v, int keyCode, KeyEvent event) {
 
                 if (keyCode == KeyEvent.KEYCODE_BACK){
-                    if(mywebview.canGoBack())
-                        mywebview.goBack();
-                    else
-                        startActivity(new Intent(getActivity() , HomeActivity.class),
-                                ActivityOptions.makeSceneTransitionAnimation(getActivity()).toBundle());
+                    
                     return true;
                 }
                 return false;

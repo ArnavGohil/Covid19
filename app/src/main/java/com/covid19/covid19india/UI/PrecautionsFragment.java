@@ -7,6 +7,7 @@ import android.os.Bundle;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -37,6 +38,18 @@ public class PrecautionsFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View v = inflater.inflate(R.layout.fragment_precautions, container, false);
+
+        v.setOnKeyListener(new View.OnKeyListener() {
+            @Override
+            public boolean onKey(View v, int keyCode, KeyEvent event) {
+
+                if (keyCode == KeyEvent.KEYCODE_BACK){
+
+                    return true;
+                }
+                return false;
+            }
+        });
 
         final ArrayList<Img> imgArrayList = new ArrayList<>();
         imgArrayList.add(new Img(R.drawable.safe_greetings, "https://www.who.int/images/default-source/health-topics/coronavirus/safe-greetings.png"));
