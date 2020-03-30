@@ -18,6 +18,7 @@ import com.example.covid19.Models.State;
 import com.example.covid19.R;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.InterstitialAd;
 import com.google.android.gms.ads.MobileAds;
 import com.google.android.gms.ads.initialization.InitializationStatus;
 import com.google.android.gms.ads.initialization.OnInitializationCompleteListener;
@@ -57,6 +58,7 @@ public class HomeActivity extends AppCompatActivity {
     TextView tot , rec,act,dea ;
     Button t1 , t2 ;
     MaterialButtonToggleGroup bg ;
+    private InterstitialAd mInterstitialAd;
 
     BottomAppBar.OnMenuItemClickListener itemClickListner
             = new  BottomAppBar.OnMenuItemClickListener()
@@ -64,9 +66,19 @@ public class HomeActivity extends AppCompatActivity {
         @Override
         public boolean onMenuItemClick(MenuItem item) {
             int id = item.getItemId() ;
-
+            check++;
             if(id == R.id.ind  && flag != 0)
             {
+                if(check >= 5)
+                {
+                    if (mInterstitialAd.isLoaded())
+                    {
+                        mInterstitialAd.show();
+                        check = -1;
+                    }
+                    else
+                        check = 3 ;
+                }
                 fragmentManager.beginTransaction().remove(precautionsFragment).remove(webFragment).remove(newsFragment).commit();
                 flag = 0 ;
                 return false;
@@ -126,6 +138,9 @@ public class HomeActivity extends AppCompatActivity {
         mAdView = findViewById(R.id.adView);
         AdRequest adRequest = new AdRequest.Builder().build();
         mAdView.loadAd(adRequest);
+        mInterstitialAd = new InterstitialAd(this);
+        mInterstitialAd.setAdUnitId("ca-app-pub-1629522666877826/9975125732");
+        mInterstitialAd.loadAd(new AdRequest.Builder().build());
 
         BottomAppBar bar = findViewById(R.id.bottomAppBar);
         bar.setOnMenuItemClickListener(itemClickListner);
@@ -151,6 +166,7 @@ public class HomeActivity extends AppCompatActivity {
             public void onClick(View view) {
                 if(savedInstanceState == null && flag != 3) {
                     flag = 3;
+                    check++;
                     fragmentManager.beginTransaction()
                             .add(R.id.frame, webFragment)
                             .remove(precautionsFragment)
