@@ -49,8 +49,6 @@ public class WebFragment extends Fragment {
                 if (keyCode == KeyEvent.KEYCODE_BACK) {
                     if (mywebview.canGoBack())
                         mywebview.goBack();
-                    else
-                        return true;
                 }
                 return false;
             }

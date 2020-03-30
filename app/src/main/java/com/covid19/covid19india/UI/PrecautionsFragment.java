@@ -32,18 +32,6 @@ public class PrecautionsFragment extends Fragment {
         // Inflate the layout for this fragment
         View v = inflater.inflate(R.layout.fragment_precautions, container, false);
 
-        v.setOnKeyListener(new View.OnKeyListener() {
-            @Override
-            public boolean onKey(View v, int keyCode, KeyEvent event) {
-
-                if (keyCode == KeyEvent.KEYCODE_BACK) {
-
-                    return true;
-                }
-                return false;
-            }
-        });
-
         final ArrayList<Img> imgArrayList = new ArrayList<>();
         imgArrayList.add(new Img(R.drawable.safe_greetings, "https://www.who.int/images/default-source/health-topics/coronavirus/safe-greetings.png"));
         imgArrayList.add(new Img(R.drawable.handshaking, "https://www.who.int/images/default-source/health-topics/coronavirus/handshaking.png"));
