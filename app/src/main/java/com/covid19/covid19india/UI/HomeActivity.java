@@ -32,9 +32,6 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-import org.jsoup.Jsoup;
-import org.jsoup.nodes.Document;
-import org.jsoup.select.Elements;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -178,7 +175,12 @@ public class HomeActivity extends AppCompatActivity {
             public void onPageFinished(WebView view, String url) {
 
                 mapView.loadUrl("javascript:(function() { " +
-                        "document.getElementsByTagName(\"body\")[0].getElementsByClassName(\"MapExplorer fadeInUp\")[0].style.display='none'; " +
+                        "var head = document.getElementsByTagName(\"body\")[0].getElementsByClassName(\"Navbar\")[0].style.display='none'; " +
+                        "var head = document.getElementsByTagName(\"body\")[0].getElementsByClassName(\"Banner fadeInUp\")[0].style.display='none'; " +
+                        "var head = document.getElementsByTagName(\"body\")[0].getElementsByClassName(\"home-left\")[0].style.display='none'; " +
+                        "var head = document.getElementsByTagName(\"body\")[0].getElementsByClassName(\"timeseries-header fadeInUp\")[0].style.display='none'; " +
+                        "var head = document.getElementsByTagName(\"body\")[0].getElementsByClassName(\"TimeSeries-Parent fadeInUp\")[0].style.display='none'; " +
+                        "var head = document.getElementsByTagName(\"body\")[0].getElementsByClassName(\"fadeInUp\")[0].style.display='none'; " +
                         "})()");
             }
         });
