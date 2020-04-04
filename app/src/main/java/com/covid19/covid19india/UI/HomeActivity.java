@@ -50,11 +50,9 @@ import javax.net.ssl.HttpsURLConnection;
 public class HomeActivity extends AppCompatActivity {
 
     int flag = 0, check = 0;
-    ;
     FragmentManager fragmentManager = getSupportFragmentManager();
     NewsFragment newsFragment = new NewsFragment();
     PrecautionsFragment precautionsFragment = new PrecautionsFragment();
-    WebFragment webFragment = new WebFragment();
     ListView lv;
     static String URL;
     public static HttpURLConnection urlConnection = null;
@@ -82,13 +80,13 @@ public class HomeActivity extends AppCompatActivity {
                     } else
                         check = 3;
                 }
-                fragmentManager.beginTransaction().remove(precautionsFragment).remove(webFragment).remove(newsFragment).commit();
+                fragmentManager.beginTransaction().remove(precautionsFragment).remove(newsFragment).commit();
                 flag = 0;
                 return false;
             } else if (id == R.id.news && flag != 1) {
                 mapView.onPause();
                 fragmentManager.beginTransaction()
-                        .remove(precautionsFragment).remove(webFragment)
+                        .remove(precautionsFragment)
                         .add(R.id.frame, newsFragment)
                         .commit();
                 flag = 1;
@@ -96,7 +94,7 @@ public class HomeActivity extends AppCompatActivity {
             } else if (id == R.id.prec && flag != 2) {
                 mapView.onPause();
                 fragmentManager.beginTransaction()
-                        .remove(newsFragment).remove(webFragment)
+                        .remove(newsFragment)
                         .add(R.id.frame, precautionsFragment)
                         .commit();
                 flag = 2;
@@ -120,7 +118,6 @@ public class HomeActivity extends AppCompatActivity {
         }
     };
 
-    FloatingActionButton fab;
     FrameLayout frameLayout;
     AdView mAdView;
 
@@ -145,7 +142,6 @@ public class HomeActivity extends AppCompatActivity {
         BottomAppBar bar = findViewById(R.id.bottomAppBar);
         bar.setOnMenuItemClickListener(itemClickListner);
 
-        fab = findViewById(R.id.fab);
         frameLayout = findViewById(R.id.frame);
         tot = findViewById(R.id.textView);
         rec = findViewById(R.id.recTV);
@@ -182,21 +178,6 @@ public class HomeActivity extends AppCompatActivity {
         URL = "https://api.covid19india.org/data.json";
         AsyncTask<Void, Void, Void> execute = new Utlis().execute();
 
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if (savedInstanceState == null && flag != 3) {
-                    flag = 3;
-                    check++;
-                    mapView.onPause();
-                    fragmentManager.beginTransaction()
-                            .add(R.id.frame, webFragment)
-                            .remove(precautionsFragment)
-                            .remove(newsFragment)
-                            .commit();
-                }
-            }
-        });
     }
 
     @Override
@@ -282,9 +263,12 @@ public class HomeActivity extends AppCompatActivity {
                 JSONArray ini = jsonObject.getJSONArray("statewise");
                 JSONObject o = ini.getJSONObject(0);
                 tot.setText("Total Cases - " + o.getString("confirmed"));
+                tot.append("\n[+" + o.getString("deltaconfirmed") + "]");
                 act.setText("Active Cases - " + o.getInt("active"));
                 rec.setText("Recovered - " + o.getInt("recovered"));
+                rec.append("\n[+" + o.getString("deltarecovered") + "]");
                 dea.setText("Deaths - " + o.getInt("deaths"));
+                dea.append("\n[+" + o.getString("deltadeaths") + "]");
                 for (int i = 1; i < ini.length(); i++) {
                     JSONObject obj = ini.getJSONObject(i);
                     String st = obj.getString("state");
