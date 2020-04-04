@@ -1,4 +1,4 @@
-package com.covid19.covid19india.UI;
+package com.covid19.covid.UI;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
@@ -13,7 +13,7 @@ import android.os.Bundle;
 import android.os.Handler;
 
 import com.airbnb.lottie.LottieAnimationView;
-import com.covid19.covid19india.R;
+import com.covid19.covid.R;
 
 public class MainActivity extends AppCompatActivity {
 

@@ -1,4 +1,4 @@
-package com.covid19.covid19india;
+package com.covid19.covid;
 
 import android.graphics.Bitmap;
 import android.graphics.BitmapShader;

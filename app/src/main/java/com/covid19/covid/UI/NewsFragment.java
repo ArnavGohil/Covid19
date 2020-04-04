@@ -1,4 +1,4 @@
-package com.covid19.covid19india.UI;
+package com.covid19.covid.UI;
 
 import android.content.Intent;
 import android.graphics.Bitmap;
@@ -9,7 +9,6 @@ import android.os.Bundle;
 import androidx.fragment.app.Fragment;
 
 import android.util.Log;
-import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,9 +17,9 @@ import android.view.animation.AnimationUtils;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
-import com.covid19.covid19india.Models.Card;
-import com.covid19.covid19india.Adapters.CardAdapter;
-import com.covid19.covid19india.R;
+import com.covid19.covid.Models.Card;
+import com.covid19.covid.Adapters.CardAdapter;
+import com.covid19.covid.R;
 
 import org.json.JSONArray;
 import org.json.JSONException;
