@@ -263,9 +263,12 @@ public class HomeActivity extends AppCompatActivity {
                 JSONArray ini = jsonObject.getJSONArray("statewise");
                 JSONObject o = ini.getJSONObject(0);
                 tot.setText("Total Cases - " + o.getString("confirmed"));
+                tot.append("\n[+" + o.getString("deltaconfirmed") + "]");
                 act.setText("Active Cases - " + o.getInt("active"));
                 rec.setText("Recovered - " + o.getInt("recovered"));
+                rec.append("\n[+" + o.getString("deltarecovered") + "]");
                 dea.setText("Deaths - " + o.getInt("deaths"));
+                dea.append("\n[+" + o.getString("deltadeaths") + "]");
                 for (int i = 1; i < ini.length(); i++) {
                     JSONObject obj = ini.getJSONObject(i);
                     String st = obj.getString("state");
