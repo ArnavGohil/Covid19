@@ -72,12 +72,12 @@ public class HomeActivity extends AppCompatActivity {
             check++;
             if (id == R.id.ind && flag != 0) {
                 mapView.onResume();
-                if (check >= 5) {
+                if (check >= 2) {
                     if (mInterstitialAd.isLoaded()) {
                         mInterstitialAd.show();
                         check = -1;
                     } else
-                        check = 3;
+                        check = 1;
                 }
                 fragmentManager.beginTransaction().remove(precautionsFragment).remove(newsFragment).commit();
                 flag = 0;
