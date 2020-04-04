@@ -136,7 +136,7 @@ public class HomeActivity extends AppCompatActivity {
         AdRequest adRequest = new AdRequest.Builder().build();
         mAdView.loadAd(adRequest);
         mInterstitialAd = new InterstitialAd(this);
-        mInterstitialAd.setAdUnitId("ca-app-pub-3940256099942544/1033173712");
+        mInterstitialAd.setAdUnitId("ca-app-pub-1629522666877826/8335327733");
         mInterstitialAd.loadAd(new AdRequest.Builder().build());
 
         BottomAppBar bar = findViewById(R.id.bottomAppBar);
