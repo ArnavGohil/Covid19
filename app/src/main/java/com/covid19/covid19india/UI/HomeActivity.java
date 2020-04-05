@@ -1,4 +1,4 @@
-package com.covid19.covid.UI;
+package com.covid19.covid19india.UI;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
@@ -18,9 +18,9 @@ import android.widget.FrameLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import com.covid19.covid.Adapters.StateAdapter;
-import com.covid19.covid.Models.State;
-import com.covid19.covid.R;
+import com.covid19.covid19india.Adapters.StateAdapter;
+import com.covid19.covid19india.Models.State;
+import com.covid19.covid19india.R;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.InterstitialAd;

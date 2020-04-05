@@ -8,9 +8,9 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:8510525418:android:56915a87e96aa588116c93",
+        "mobilesdk_app_id": "1:8510525418:android:c04db45e46d767b6116c93",
         "android_client_info": {
-          "package_name": "com.covid19.covid"
+          "package_name": "com.covid19.covid19india"
         }
       },
       "oauth_client": [

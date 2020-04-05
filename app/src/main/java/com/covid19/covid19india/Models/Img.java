@@ -1,4 +1,4 @@
-package com.covid19.covid.Models;
+package com.covid19.covid19india.Models;
 
 public class Img {
     private int ID;
