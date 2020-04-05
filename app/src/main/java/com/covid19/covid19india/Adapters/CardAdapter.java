@@ -1,4 +1,4 @@
-package com.covid19.covid.Adapters;
+package com.covid19.covid19india.Adapters;
 
 import android.app.Activity;
 import android.view.LayoutInflater;
@@ -8,9 +8,9 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.covid19.covid.CircleTransform;
-import com.covid19.covid.Models.Card;
-import com.covid19.covid.R;
+import com.covid19.covid19india.CircleTransform;
+import com.covid19.covid19india.Models.Card;
+import com.covid19.covid19india.R;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;

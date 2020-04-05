@@ -1,4 +1,4 @@
-package com.covid19.covid;
+package com.covid19.covid19india;
 
 import android.content.Context;
 
