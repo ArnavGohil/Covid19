@@ -125,7 +125,7 @@ public class HomeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
-        MobileAds.initialize(this, "ca-app-pub-1629522666877826~9877200610");
+        MobileAds.initialize(this, "ca-app-pub-4902388750209799~5729463235");
         MobileAds.initialize(this, new OnInitializationCompleteListener() {
             @Override
             public void onInitializationComplete(InitializationStatus initializationStatus) {
@@ -135,7 +135,7 @@ public class HomeActivity extends AppCompatActivity {
         AdRequest adRequest = new AdRequest.Builder().build();
         mAdView.loadAd(adRequest);
         mInterstitialAd = new InterstitialAd(this);
-        mInterstitialAd.setAdUnitId("ca-app-pub-1629522666877826/8335327733");
+        mInterstitialAd.setAdUnitId("ca-app-pub-4902388750209799/6830985438");
         mInterstitialAd.loadAd(new AdRequest.Builder().build());
 
         BottomAppBar bar = findViewById(R.id.bottomAppBar);
