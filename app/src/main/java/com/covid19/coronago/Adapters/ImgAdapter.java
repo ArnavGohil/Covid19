@@ -1,4 +1,4 @@
-package com.covid19.covid19india.Adapters;
+package com.covid19.coronago.Adapters;
 
 import android.app.Activity;
 import android.content.Context;
@@ -12,8 +12,8 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 
-import com.covid19.covid19india.Models.Img;
-import com.covid19.covid19india.R;
+import com.covid19.coronago.Models.Img;
+import com.covid19.coronago.R;
 import com.google.android.material.button.MaterialButton;
 import com.google.android.material.snackbar.Snackbar;
 

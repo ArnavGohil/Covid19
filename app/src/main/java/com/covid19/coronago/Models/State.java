@@ -1,4 +1,4 @@
-package com.covid19.covid19india.Models;
+package com.covid19.coronago.Models;
 
 public class State {
     private String nam;

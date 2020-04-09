@@ -1,4 +1,4 @@
-package com.covid19.covid19india.UI;
+package com.covid19.coronago.UI;
 
 import android.os.Bundle;
 
@@ -9,9 +9,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
 
-import com.covid19.covid19india.Adapters.ImgAdapter;
-import com.covid19.covid19india.Models.Img;
-import com.covid19.covid19india.R;
+import com.covid19.coronago.Adapters.ImgAdapter;
+import com.covid19.coronago.Models.Img;
+import com.covid19.coronago.R;
 
 import java.util.ArrayList;
 
