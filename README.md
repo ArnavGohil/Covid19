@@ -1,10 +1,10 @@
 # Covid19
 
-![Splash Screen](Splash\ Screen.jpg)
+![Splash Screen](Splash.jpg)
 
-![Table View](Table\ View.jpg)
+![Table View](Table.jpg)
 
-![Map View](Map\ View.jpg)
+![Map View](Map.jpg)
 
 ![Precaution](Precaution.jpg)
 
