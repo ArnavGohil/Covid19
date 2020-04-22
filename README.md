@@ -1,6 +1,6 @@
 # Covid19
 
-![Splash Screen](Splash.jpg)
+![Splash Screen](Splash%20Screen.jpg)
 
 ![Table View](Table.jpg)
 
