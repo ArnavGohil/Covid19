@@ -6,4 +6,6 @@
 
 ![Map View](Map%20View.jpg)
 
+![Precaution](Precaution.jpg)
 
+![News](News.jpg)
