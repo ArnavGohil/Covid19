@@ -2,9 +2,9 @@
 
 ![Splash Screen](Splash%20Screen.jpg)
 
-![Table View](Table.jpg)
+![Table View](Table%20View.jpg)
 
-![Map View](Map.jpg)
+![Map View](Map%20View.jpg)
 
 ![Precaution](Precaution.jpg)
 
